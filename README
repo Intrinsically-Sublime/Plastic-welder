@@ -1,0 +1,98 @@
+---Description---
+
+WARNING handle with caution. Keep away from children, pets and anything flammable. USE WITH CARE. I will not be held responsible for injuries or damages from the use of this device
+
+The electronics are the work in progress.
+
+(low duty cycle only)
+
+With the limited build size of most 3D printers I found a need for a better way to assemble multi-piece models and the obvious choice seemed to be a welder.
+
+It based on Gregs hinged accessible extruder (wildseye hotend version).
+It uses my revision of Ryhs_jones Herringbone gears.
+thingiverse.com/thing:10538
+
+Universal mount for miscellaneous gear motors or steppers.
+
+Uses 70mm of 1/2" PTFE rod.
+
+The heater barrel is a 1/4" bolt drilled to 3.5mm.
+Aluminium heater block with 6.8ohm vitreous enamel resistor heater.
+100k thermistor.
+1/4" brass acorn nut with .8mm nozzle hole.
+Built the same way as geometricobjectdepositiontool.blogspot.com/p/no-lathe-plumstruder.html but with out any support material.
+( I did not feel it needed support because it is to be used hotter and slower which equals lower pressures, as well as for shorter durations )
+
+The heater circuit I used is similar to pdf417.blogspot.com/2010/09/problem-with-extruder-heater-solved.html but used components I had lying around.
+
+The gear box I used was from some old toy.
+(My_gearbox.stl is a block model of the gearbox I used. I created the model to be sure it would fit. Do NOT print it unless you want to compare it to one you have)
+
+Electronics
+PLEASE use the circuit mentioned earlier pdf417.blogspot.com/2010/09/problem-with-extruder-heater-solved.html unless you are like me and have a lot of low power mosfets.
+
+The Eagle file provided is for my heater circuit and is still undergoing testing.
+
+I have 100 TIP29's around so have made use of them here. They are only rated to 1A continuous 3A peak each so I have used three of them in parallel.
+
+T1 = PNP transistor (to turn off the three NPN's when at set temp)(must be capable of R4's current flow)
+
+T2-T3-T4 = NPN transistors (3A total minimum)
+
+L.E.D. 1 = (turns off when at set temp)
+
+R1 = 100k ntc Thermistor (measures temp)
+
+R2 = 50K pot (sets temperature)
+
+R3 = 1k 1/8w resistor (for L.E.D.)
+
+R4 = based on gain of transistors used (holds T2-T3-T4 high)(I choose 1/2watt 150ohm resistor @ 12V = 80mA * 40 (TIP29 = 40x gain) = 3.2A max output)
+
+R5 = 5K 1/8w resistor (increases adjustability at higher temps)
+
+C1 = Smoothing cap rated higher voltage than 12V and as high of capacity as you have lying around and still fits on the board (8mm dia max)
+
+All modelling done with Blender 2.57 
+
+---Instructions---
+
+I printed the entire thing in PLA and the handle does get soft near the end after a few minutes. If you have the ability to print in ABS I highly recommend printing the handle in ABS.
+
+Print
+1 main body
+1 idler
+1 handle
+1 large gear and 1 small gear
+You can still use Gregs original Gears or the herringbone ones.
+The Gear named Plastic Welder Small Gear is designed to it on a 5.5mm hex shaft.
+
+Assemble extruder portion as per Gregs extruder.
+
+If using a small DC motor you may need to use a custom small gear.
+
+If using DC motor drill holes for mounting and screw down.
+
+If using Stepper attach using four holes provided.
+
+Build your favourite hotend using 1/2" PTFE (PTFE 70mm's fits inside the handle and body)
+
+Install prepared PTFE in body using two screws through mounting holes in the body) (groove mount style)
+
+Slide handle over PTFE rod and tab on body. (install bolt through hole provided if necessary)
+
+Install hotend in PTFE.
+
+Wire Hotend to Heater control board.
+pdf417.blogspot.com/2010/09/problem-with-extruder-heater-solved.html
+Or the one I provided
+Or your RepRap electronics
+Or ?????
+
+Wire DC with a PWM circuit such as dprg.org/tutorials/2005-11a/index.html
+Or direct through a switch
+Or ?????
+
+Wire Stepper motor using a microcontroller and Stepper driver
+Or use your RepRap electronics
+or ????? 
